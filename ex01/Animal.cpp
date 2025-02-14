@@ -6,7 +6,7 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:18:44 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/13 20:29:33 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/14 16:59:35 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void Animal::makeSound(void) const
 	std::cout << "Woop Woop it's da sound of Animal" << std::endl;
 }
 
-std::string Animal::getType(void) const
+std::string& Animal::getType(void)
 {
 	return (this->type);
 }
