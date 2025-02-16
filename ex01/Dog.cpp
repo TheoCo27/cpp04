@@ -6,7 +6,7 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:18:57 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/16 21:19:32 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/16 22:42:07 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ Dog::Dog(void) : Animal()
 Dog::Dog(const Dog &copy) : Animal(copy)
 {
     std::cout << "Dog Copy constructor called" << std::endl;
+	this->tab_ideas = NULL;
+	this->largeArray = NULL;
 	try 
 	{
 		this->tab_ideas = new Brain(*copy.tab_ideas); // Copie en profondeur
