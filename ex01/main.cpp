@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:19:17 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/14 16:57:18 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/16 01:11:24 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
-
-#define SIZE 4
 
 int error_new(Animal *tab_animal[SIZE], std::bad_alloc e)
 {
@@ -62,8 +60,8 @@ int main()
 
 	std::cout << "dog1 adress is " << &dog1 << std::endl;
 	std::cout << "dog2 address is " << &dog2 << std::endl;
-	std::cout << "dog1.type address is " << &dog1.getType();
-	std::cout << "dog2 type address is " << &dog2.getType();
+	std::cout << "dog1.type address is " << &dog1.getType() << std::endl;
+	std::cout << "dog2.type address is " << &dog2.getType() << std::endl;
  
 	destroy_animals(tab_animal);
 }

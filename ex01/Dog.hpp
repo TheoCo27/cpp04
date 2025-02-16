@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:56:30 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/14 14:40:37 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/16 01:05:30 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #pragma once
 #include "Animal.hpp"
 #include "Brain.hpp"
+#define SIZE 4
+#define L_ARRAY 10
 
 class Dog : public Animal
 {

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:18:57 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/14 16:48:28 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/16 11:49:02 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+
 
 Dog::Dog(void) : Animal()
 {
@@ -31,7 +32,7 @@ Dog::Dog(void) : Animal()
 	try
 	{
 		//this->largeArray = new int[10000000000000000];  // Tente d'allouer un tableau gigantesque
-		this->largeArray = new int [10];
+		this->largeArray = new int [L_ARRAY];
 	}
 	catch(std::bad_alloc &e)
 	{
@@ -42,18 +43,26 @@ Dog::Dog(void) : Animal()
 }
 Dog::Dog(const Dog &copy) : Animal(copy)
 {
-	std::cout << "Dog Copy constructor called" << std::endl;
-	*this = copy;
+    std::cout << "Dog Copy constructor called" << std::endl;
+    this->tab_ideas = new Brain(*copy.tab_ideas); // Copie en profondeur
+    this->largeArray = new int[L_ARRAY];
+    for (int i = 0; i < L_ARRAY; i++)
+        this->largeArray[i] = copy.largeArray[i];
 }
 Dog& Dog::operator=(const Dog &copy)
 {
-	if (this != &copy)
-	{
-		this->type = copy.type;
-		for (int i = 0; i < 100; i++)
-			this->tab_ideas[i] = copy.tab_ideas[i];
-	}
-	return (*this);
+    if (this != &copy)
+    {
+        this->type = copy.type;
+
+        // Supprimer l'ancien Brain et en créer un nouveau
+        delete this->tab_ideas;
+        this->tab_ideas = new Brain(*copy.tab_ideas);
+
+        for (int i = 0; i < L_ARRAY; i++)
+            this->largeArray[i] = copy.largeArray[i];
+    }
+    return (*this);
 }
 
 Dog::~Dog(void)
