@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:19:17 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/16 01:11:24 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/16 21:09:13 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ void destroy_animals(Animal *tab_animals[SIZE])
 int main()
 {
 	Animal *tab_animal[SIZE];
-	Dog *dog_ptr;
-	Cat *cat_ptr;
+	Dog* dog_ptr;
 
 	for (int i = 0; i < SIZE; i++)
 		tab_animal[i] = NULL;
@@ -55,6 +54,8 @@ int main()
 			return(error_new(tab_animal, e));
 		}
 	}
+	dog_ptr = dynamic_cast<Dog *>(tab_animal[0]);
+	dog_ptr->makeSound();
 	Dog dog1;
 	Dog dog2(dog1);
 

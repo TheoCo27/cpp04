@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:56:30 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/16 01:05:30 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/16 20:54:36 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Dog : public Animal
 {
 	private:
 		Brain *tab_ideas;
+		int* largeArray;
 	public:
 		Dog(void);
 		Dog(const Dog &copy);
@@ -28,5 +29,4 @@ class Dog : public Animal
 		virtual ~Dog(void);
 		void makeSound(void) const;
 		Brain *getTab_ideas(void);
-		int* largeArray;
 };
