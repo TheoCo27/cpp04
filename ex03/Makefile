@@ -3,41 +3,43 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+         #
+#    By: theog <theog@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/17 17:42:10 by tcohen            #+#    #+#              #
-#    Updated: 2025/02/17 17:42:31 by tcohen           ###   ########.fr        #
+#    Updated: 2025/02/19 15:32:14 by theog            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+# Variables
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc
+SRCS = src/AMateria.cpp src/Cure.cpp src/ICharacter.cpp src/IMateriaSource.cpp src/Ice.cpp src/main.cpp
+OBJDIR = obj
+OBJS = $(SRCS:src/%.cpp=$(OBJDIR)/%.o)
+NAME = Materia
 
-SRC = AMateria.cpp Cure.cpp Ice.cpp ICharcater.cpp IMateriaSource.cpp main.cpp
-OBJ_DIR = obj
-OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
-EXEC = MateriaProgram
+# Règle par défaut
+all: $(NAME)
 
-all: $(EXEC)
+# Compilation de l'exécutable
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $^ -o $@
 
-$(EXEC): $(OBJ)
-	$(CXX) $(CXXFLAGS) $^ -o $@
+# Compilation des fichiers objets
+$(OBJDIR)/%.o: src/%.cpp
+	@mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
-
+# Nettoyage des fichiers objets
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -rf $(OBJDIR)
 
+# Nettoyage complet (obj + binaire)
 fclean: clean
-	rm -f $(EXEC)
+	rm -f $(NAME)
 
+# Recompilation complète
 re: fclean all
 
 .PHONY: all clean fclean re
-
-
