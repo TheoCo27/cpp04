@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:05:43 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/19 20:45:59 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/20 01:00:04 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Ice::~Ice(void)
 AMateria* Ice::clone() const
 {
 	std::cout << "Ice clone called" << std::endl;
-	return(new Ice);
+	return(new(std::nothrow) Ice);
 }
 
 void Ice::use(ICharacter& target)

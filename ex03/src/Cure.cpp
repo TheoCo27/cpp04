@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:05:37 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/19 20:47:17 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/20 00:59:49 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Cure::~Cure(void)
 AMateria* Cure::clone() const
 {
 	std::cout << "Cure clone called" << std::endl;
-	return (new Cure);
+	return (new(std::nothrow) Cure);
 }
 
 void Cure::use(ICharacter& target)
