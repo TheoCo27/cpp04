@@ -6,7 +6,7 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:08:40 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/20 14:32:47 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/20 15:27:56 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int main()
 	me->equip(tmp);
 
 	ICharacter		*bob = new Character("bob");
-
+    Character* og(dynamic_cast<Character *>(me));
+    og->print_inventory();
 	me->use(0, *bob);
 	me->use(1, *bob);
 

@@ -6,7 +6,7 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:05:51 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/20 14:47:59 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/20 15:29:17 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,6 +188,17 @@ void Character::use(int idx, ICharacter& target)
 		return;
 	}
 
-	std::cout << "I " << this->_Name << " ";
+	std::cout << "I " << this->_Name;
 	this->_inventory[idx]->use(target);
+}
+
+void Character::print_inventory(void)
+{
+	for(int i = 0; i < 4; i++)
+	{
+		if(this->_inventory[i])
+		{
+			std::cout << "Index: " << i << " is type " << _inventory[i]->getType() << std::endl;
+		}
+	}
 }

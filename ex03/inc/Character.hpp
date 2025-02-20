@@ -6,7 +6,7 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 17:50:49 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/20 14:47:21 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/20 15:25:46 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 class Character : public ICharacter
 {
-	protected:
+	protected: 
 		std::string		_Name;
 		AMateria*		_inventory[4];
 		int				_inventorySize;
@@ -36,4 +36,6 @@ class Character : public ICharacter
 		int get_materia_index(AMateria *m);
 		int add_to_thrash(AMateria *m);
 		void clean_thrash(void);
+		void print_inventory(void);
+
 };

@@ -6,7 +6,7 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:05:43 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/20 14:54:31 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/20 15:29:59 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ AMateria* Ice::clone() const
 
 void Ice::use(ICharacter& target)
 {
-	std::cout << " heals "<< target.getName() << "'s wounds" << std::endl;
+	std::cout << "* shoots an ice bolt at "<< target.getName() << " *" << std::endl;
 }
