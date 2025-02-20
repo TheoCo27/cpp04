@@ -6,13 +6,13 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:05:43 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/20 01:00:04 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/20 14:54:31 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Ice.hpp" 
 
-Ice::Ice(void): AMateria("Ice")
+Ice::Ice(void): AMateria("ice")
 {
 	std::cout << "Ice defaut constructor called" << std::endl;
 }
