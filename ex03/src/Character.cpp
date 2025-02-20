@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharcater.cpp                                     :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:05:51 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/20 01:17:37 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/20 01:42:12 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ICharacter.hpp"
+#include "../inc/Character.hpp"
 
 //public:
-ICharacter::ICharacter(void)
+Character::Character(void) : ICharacter()
 {
 	this->_Name = "Slim Shady";
 	this->_error = 0;
@@ -24,7 +24,7 @@ ICharacter::ICharacter(void)
 		this->_inventory[i] = NULL;
 
 }
-ICharacter::ICharacter(const ICharacter &copy)
+Character::Character(const Character &copy) : ICharacter(copy)
 {
 	this->_Name = copy._Name;
 	this->_error = copy._error;
@@ -47,7 +47,7 @@ ICharacter::ICharacter(const ICharacter &copy)
 		}
 	}
 }
-ICharacter& ICharacter::operator=(const ICharacter &copy)
+Character& Character::operator=(const Character &copy)
 {
 	this->_Name = copy._Name;
 	this->_error = copy._error;
@@ -75,7 +75,7 @@ ICharacter& ICharacter::operator=(const ICharacter &copy)
 	}
 }
 
-ICharacter::~ICharacter(void) 
+Character::~Character(void)
 {
 	this->clean_thrash();
 	for(int i = 0; i <= this->_inventorySize; i++)
@@ -86,13 +86,13 @@ ICharacter::~ICharacter(void)
 	}
 }
 
-std::string const & ICharacter::getName(void) const
+std::string const & Character::getName(void) const
 {
 	return(this->_Name);
 }
 //method
 
-int ICharacter::get_materia_index(AMateria *m)
+int Character::get_materia_index(AMateria *m)
 {
 	for(int i = 0; i < 4; i++)
 	{
@@ -102,7 +102,7 @@ int ICharacter::get_materia_index(AMateria *m)
 	return(-1);
 }
 
-void ICharacter::clean_thrash(void)
+void Character::clean_thrash(void)
 {
 	if (this->_ThrashSize == 0)
 		return;
@@ -117,7 +117,7 @@ void ICharacter::clean_thrash(void)
 	this->_ThrashSize = 0;
 }
 
-int ICharacter::add_to_thrash(AMateria *m)
+int Character::add_to_thrash(AMateria *m)
 {	
 	AMateria **thrash_temp;
 
@@ -133,7 +133,7 @@ int ICharacter::add_to_thrash(AMateria *m)
 	this->_ThrashSize++;
 }
 
-void ICharacter::equip(AMateria* m)
+void Character::equip(AMateria* m)
 {
 	if (this->_inventorySize == 3)
 	{
@@ -144,7 +144,7 @@ void ICharacter::equip(AMateria* m)
 	this->_inventorySize++;
 	std::cout << "Materia of type " << m->getType() << " has been succesfully added to inventory" << std::endl;
 }
-void ICharacter::unequip(int idx)
+void Character::unequip(int idx)
 {
 	if (idx > this->_inventorySize || idx < 0)
 	{
@@ -167,7 +167,7 @@ void ICharacter::unequip(int idx)
 	}
 	std::cout << "Materia of type " << this->_inventory[idx]->getType() << " has been succesfully removed from inventory" << std::endl;
 }
-void ICharacter::use(int idx, ICharacter& target)
+void Character::use(int idx, Character& target)
 {
 	if (idx > this->_inventorySize || idx < 0)
 	{
