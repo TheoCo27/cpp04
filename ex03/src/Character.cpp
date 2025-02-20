@@ -6,7 +6,7 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:05:51 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/20 01:42:12 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/20 14:47:59 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,17 @@ Character::Character(void) : ICharacter()
 	for(int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 
+}
+
+Character::Character(std::string name) : ICharacter()
+{
+	this->_Name = name;
+	this->_error = 0;
+	this->_ThrashSize = 0;
+	this->_inventorySize = 0;
+	this->_MateriaThrash = NULL;
+	for(int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
 }
 Character::Character(const Character &copy) : ICharacter(copy)
 {
@@ -73,6 +84,7 @@ Character& Character::operator=(const Character &copy)
 			}
 		}
 	}
+	return(*this);
 }
 
 Character::~Character(void)
@@ -127,10 +139,11 @@ int Character::add_to_thrash(AMateria *m)
 	for(int i = 0; i < this->_ThrashSize + 1; i++)
 		thrash_temp[i] = this->_MateriaThrash[i];
 	thrash_temp[this->_ThrashSize] = m;
-	if(!this->_MateriaThrash != NULL)
+	if(this->_MateriaThrash != NULL)
 		delete [] this->_MateriaThrash;
 	this->_MateriaThrash = thrash_temp;
 	this->_ThrashSize++;
+	return (0);
 }
 
 void Character::equip(AMateria* m)
@@ -167,7 +180,7 @@ void Character::unequip(int idx)
 	}
 	std::cout << "Materia of type " << this->_inventory[idx]->getType() << " has been succesfully removed from inventory" << std::endl;
 }
-void Character::use(int idx, Character& target)
+void Character::use(int idx, ICharacter& target)
 {
 	if (idx > this->_inventorySize || idx < 0)
 	{

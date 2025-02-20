@@ -6,13 +6,14 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 01:23:47 by theog             #+#    #+#             */
-/*   Updated: 2025/02/20 01:34:10 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/20 14:40:20 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
-#include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {

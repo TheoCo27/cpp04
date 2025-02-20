@@ -6,7 +6,7 @@
 #    By: theog <theog@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/17 17:42:10 by tcohen            #+#    #+#              #
-#    Updated: 2025/02/19 15:32:14 by theog            ###   ########.fr        #
+#    Updated: 2025/02/20 14:37:26 by theog            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 # Variables
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc
-SRCS = src/AMateria.cpp src/Cure.cpp src/ICharacter.cpp src/IMateriaSource.cpp src/Ice.cpp src/main.cpp
+SRCS = src/AMateria.cpp src/Cure.cpp src/Character.cpp src/MateriaSource.cpp src/Ice.cpp src/main.cpp
 OBJDIR = obj
 OBJS = $(SRCS:src/%.cpp=$(OBJDIR)/%.o)
 NAME = Materia

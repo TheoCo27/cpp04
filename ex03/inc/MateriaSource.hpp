@@ -6,7 +6,7 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:05:58 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/20 14:28:15 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/20 14:29:58 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ class MateriaSource : public IMateriaSource
     protected:
 		AMateria*		_inventory[4];
 		int				_inventorySize;
-		AMateria**		_MateriaThrash;
-		int				_ThrashSize;
 		int				_error;
 
     public:

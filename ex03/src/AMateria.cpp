@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 17:42:44 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/19 20:29:26 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/20 14:52:31 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ AMateria::AMateria(std::string const & type)
 }
 std::string const & AMateria::getType(void) const
 {
-	std::cout << "Amateria getType called" << std::endl;
 	return(this->_type);
 }
 void AMateria::use(ICharacter& target)

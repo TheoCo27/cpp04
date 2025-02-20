@@ -6,7 +6,7 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:05:54 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/20 14:27:01 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/20 14:46:08 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource &copy)
 			}
 		}
 	}
+    return (*this);
 }
 
 MateriaSource::~MateriaSource(void)
