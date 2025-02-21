@@ -6,7 +6,7 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:08:40 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/21 19:45:16 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/21 20:34:43 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,10 @@ void same_materiaSource_test(void)
 	src->learnMateria(ptr);
 	src->learnMateria(ptr);
 	//Inventory full
-	AMateria *test = new Ice();	
-	src->learnMateria(test);
+	src->learnMateria(ptr);
 	// create Materia polymorphe
 	AMateria *ptr1 = src->createMateria("ice");
-	AMateria *ptr2 = src->createMateria("cure");
+	AMateria *ptr2 = src->createMateria("ice");
 	AMateria *ptr3 = src->createMateria("unknown");
 
 	Character bob("bob");
@@ -97,7 +96,6 @@ void same_materiaSource_test(void)
 	delete ptr1;
 	delete ptr2;
 	delete src;
-	delete test;
 }
 
 void character_inventory_test(void)
@@ -187,5 +185,5 @@ int main()
 	//character_same_inventory_test();
 	//test_thomas();
 	//character_same_inventory_test();
-	//same_materiaSource_test();
+	same_materiaSource_test();
 }

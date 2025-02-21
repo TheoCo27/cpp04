@@ -6,7 +6,7 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:05:54 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/21 19:40:25 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/21 19:56:56 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static void erase_double_ptr(AMateria **tab, AMateria *ptr, int tab_size, int st
 
 MateriaSource::~MateriaSource(void)
 {
-	for(int i = 0; i < this->_inventorySize; i++)
+	for(int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i])
 		{
