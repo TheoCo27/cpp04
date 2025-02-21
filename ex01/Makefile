@@ -6,11 +6,11 @@
 #    By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 18:19:20 by tcohen            #+#    #+#              #
-#    Updated: 2025/02/16 21:07:07 by tcohen           ###   ########.fr        #
+#    Updated: 2025/02/21 21:59:32 by tcohen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CXX = g++
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = Animal.cpp Brain.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
