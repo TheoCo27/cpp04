@@ -6,7 +6,7 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 15:27:34 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/21 15:43:28 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/21 21:36:06 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,9 @@ ICharacter& ICharacter::operator=(const ICharacter &copy)
 	std::cout << "Icharcarter operator assignement called" << std::endl;
 	return (*this);
 }
+
+// ICharacter::~ICharacter(void)
+// {
+// 	std::cout << "Icharcarter destructor called" << std::endl;
+
+// }

@@ -6,7 +6,7 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 15:28:10 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/21 15:43:52 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/21 21:36:13 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,8 @@ IMateriaSource& IMateriaSource::operator=(const IMateriaSource &copy)
 	std::cout << "IMateriaSource operator assignememnt called" << std::endl;
 	return (*this);
 }
+
+// IMateriaSource::~IMateriaSource() {
+// 	std::cout << "IMateriaSource destructor called" << std::endl;
+
+// }
