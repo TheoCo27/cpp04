@@ -6,7 +6,7 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 01:23:47 by theog             #+#    #+#             */
-/*   Updated: 2025/02/21 15:46:25 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/21 20:41:09 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ class AMateria;
 
 class ICharacter
 {
-	// protected:
-	// 	ICharacter(void);
-	// 	ICharacter(const ICharacter &copy);
-	// 	ICharacter& operator=(const ICharacter &copy);
+	protected:
+		ICharacter(void);
+		ICharacter(const ICharacter &copy);
+		ICharacter& operator=(const ICharacter &copy);
     public:
         virtual ~ICharacter() {}
         virtual std::string const & getName() const = 0;

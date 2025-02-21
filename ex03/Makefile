@@ -6,7 +6,7 @@
 #    By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/17 17:42:10 by tcohen            #+#    #+#              #
-#    Updated: 2025/02/21 18:24:34 by tcohen           ###   ########.fr        #
+#    Updated: 2025/02/21 20:44:26 by tcohen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,12 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc -g3
 SRCS =	src/AMateria.cpp src/Cure.cpp src/Character.cpp src/MateriaSource.cpp src/Ice.cpp src/main.cpp \
-		#src/IMateriaSource.cpp src/ICharacter.cpp
+		src/IMateriaSource.cpp src/ICharacter.cpp
+SRCS_PRINT = src_print/AMateria.cpp src_print/Character.cpp src_print/Cure.cpp src_print/Ice.cpp \
+		src_print/ICharacter.cpp src_print/IMateriaSource.cpp src_print/main.cpp src_print/MateriaSource.cpp
 OBJDIR = obj
 OBJS = $(SRCS:src/%.cpp=$(OBJDIR)/%.o)
+OBJS_PRINT = $(SRCS_PRINT:src_print/%.cpp=$(OBJDIR)/%.o)
 NAME = Materia
 
 # Règle par défaut
@@ -32,15 +35,25 @@ $(OBJDIR)/%.o: src/%.cpp
 	@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# Règle print : compilation avec les fichiers source du dossier src_print
+print: $(OBJS_PRINT)
+	$(CC) $(CFLAGS) $^ -o $(NAME)_print
+
+# Compilation des fichiers objets pour print
+$(OBJDIR)/%.o: src_print/%.cpp
+	@mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
 # Nettoyage des fichiers objets
 clean:
 	rm -rf $(OBJDIR)
 
 # Nettoyage complet (obj + binaire)
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(NAME)_print
 
 # Recompilation complète
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re print
+
