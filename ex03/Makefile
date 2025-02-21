@@ -3,18 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: theog <theog@student.42.fr>                +#+  +:+       +#+         #
+#    By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/17 17:42:10 by tcohen            #+#    #+#              #
-#    Updated: 2025/02/20 14:37:26 by theog            ###   ########.fr        #
+#    Updated: 2025/02/21 18:24:34 by tcohen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # Variables
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc
-SRCS = src/AMateria.cpp src/Cure.cpp src/Character.cpp src/MateriaSource.cpp src/Ice.cpp src/main.cpp
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc -g3
+SRCS =	src/AMateria.cpp src/Cure.cpp src/Character.cpp src/MateriaSource.cpp src/Ice.cpp src/main.cpp \
+		#src/IMateriaSource.cpp src/ICharacter.cpp
 OBJDIR = obj
 OBJS = $(SRCS:src/%.cpp=$(OBJDIR)/%.o)
 NAME = Materia

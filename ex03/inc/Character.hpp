@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 17:50:49 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/20 15:25:46 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/21 19:03:13 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ class Character : public ICharacter
 		int add_to_thrash(AMateria *m);
 		void clean_thrash(void);
 		void print_inventory(void);
+		void print_thrash_adress(void);
+
 
 };

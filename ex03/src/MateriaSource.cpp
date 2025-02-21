@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:05:54 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/20 14:46:08 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/21 19:40:25 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,18 @@ MateriaSource::MateriaSource(const MateriaSource &copy) : IMateriaSource(copy)
 	this->_inventorySize = copy._inventorySize;
 	for(int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
-	for(int i = 0; i <= copy._inventorySize; i++)
+	for(int i = 0; i < copy._inventorySize; i++)
 	{
 		if ((this->_inventory[i] = copy._inventory[i]->clone()) == NULL)
 		{
 			this->_error = 1;
-			for(int i = 0; i <= this->_inventorySize; i++)
+			for(int i = 0; i < this->_inventorySize; i++)
 			{
 				if (this->_inventory[i])
 					delete this->_inventory[i];
 				this->_inventory[i] = NULL;
 			}
+			break;
 		}
 	}
 }
@@ -51,7 +52,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource &copy)
 			delete this->_inventory[i];
 		this->_inventory[i] = NULL;
 	}
-	for(int i = 0; i <= copy._inventorySize; i++)
+	for(int i = 0; i < copy._inventorySize; i++)
 	{
 		if (copy._inventory[i] && (this->_inventory[i] = copy._inventory[i]->clone()) == NULL)
 		{
@@ -62,25 +63,38 @@ MateriaSource& MateriaSource::operator=(const MateriaSource &copy)
 					delete this->_inventory[i];
 				this->_inventory[i] = NULL;
 			}
+			break;
 		}
 	}
     return (*this);
 }
 
+static void erase_double_ptr(AMateria **tab, AMateria *ptr, int tab_size, int start)
+{
+	for(int i = start + 1; i < tab_size; i++)
+	{
+		if (ptr == tab[i])
+			tab[i] = NULL;
+	}
+}
+
 MateriaSource::~MateriaSource(void)
 {
-	for(int i = 0; i <= this->_inventorySize; i++)
+	for(int i = 0; i < this->_inventorySize; i++)
 	{
 		if (this->_inventory[i])
+		{
+			erase_double_ptr(this->_inventory, this->_inventory[i], 4, i);
 			delete this->_inventory[i];
 			this->_inventory[i] = NULL;
+		}
 	}
 }
 //method
 
 void MateriaSource::learnMateria(AMateria* m)
 {
-	if (this->_inventorySize == 3)
+	if (this->_inventorySize >= 4)
 	{
 		std::cout << "You're Materia Source inventory is full" << std::endl;
 		return;
