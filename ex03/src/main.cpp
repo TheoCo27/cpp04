@@ -6,7 +6,7 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:08:40 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/21 21:31:25 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/21 21:55:15 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,7 +179,7 @@ void character_same_inventory_test(void)
 
 int main()
 {
-	// main_test();
+	main_test();
 	// materiaSource_test();
 	// character_inventory_test();
 	// character_same_inventory_test();
